@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: smartshop-support
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smartshop
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      mode: always
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  ai:
+    openai:
+      api-key: 
+      base-url: https://api.groq.com/openai
+      chat:
+        options:
+          model: llama-3.1-8b-instant
+          temperature: 0.1
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus

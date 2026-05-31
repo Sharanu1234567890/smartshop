@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16
+    container_name: smartshop-postgres-new
+    environment:
+      POSTGRES_DB: smartshop
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: smartshop-redis-new
+    ports:
+      - "6379:6380"
